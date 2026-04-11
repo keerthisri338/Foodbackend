@@ -1,22 +1,21 @@
 package com.klu.service;
-
-import com.klu.model.Food;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
+import com.klu.model.Food;
+import com.klu.repository.FoodRepository;
 
 @Service
 public class FoodService {
 
-    List<Food> list = new ArrayList<>();
+    @Autowired
+    private FoodRepository repo;
 
-    public String addFood(Food food) {
-        list.add(food);
-        return "Food Added Successfully";
+    public Food addFood(Food food) {
+        return repo.save(food);
     }
 
     public List<Food> getAllFood() {
-        return list;
+        return repo.findAll();
     }
 }

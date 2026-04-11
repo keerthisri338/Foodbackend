@@ -9,4 +9,5 @@ public class FoodbackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(FoodbackendApplication.class, args);
     }
+
 }

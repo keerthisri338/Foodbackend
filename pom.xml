@@ -1,11 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Spring Boot Parent -->
+    <groupId>com.klu</groupId>
+    <artifactId>foodbackend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>foodbackend</name>
+    <description>Food Backend Project</description>
+
+    <!-- ✅ SPRING BOOT PARENT -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -13,53 +19,62 @@
         <relativePath/>
     </parent>
 
-    <!-- Project Info -->
-    <groupId>com.klu</groupId>
-    <artifactId>foodbackend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>foodbackend</name>
-    <description>Food Backend Project</description>
-
-    <!-- Java Version -->
+    <!-- ✅ JAVA VERSION -->
     <properties>
         <java.version>17</java.version>
     </properties>
 
-    <!-- Dependencies -->
+    <!-- ✅ DEPENDENCIES -->
     <dependencies>
 
-        <!-- Spring Boot Web -->
+        <!-- 🌐 WEB -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MySQL (Optional) -->
+        <!-- 🗄️ JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- 🐬 MYSQL -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+
+        <!-- 🔄 DEVTOOLS (optional but useful) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Testing -->
+        <!-- 🧪 TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!-- 🔧 LOMBOK (optional) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
-    <!-- Build Plugin (IMPORTANT) -->
+    <!-- ✅ BUILD -->
     <build>
         <plugins>
-
-            <!-- Needed for mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
 

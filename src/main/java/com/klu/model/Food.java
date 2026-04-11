@@ -1,16 +1,24 @@
 package com.klu.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Food {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String price;
 
+    private String name;
+    private String description;
+    private double price;
+
+    // REQUIRED: Default constructor
     public Food() {}
 
-    public Food(int id, String name, String price) {
-        this.id = id;
+    public Food(String name, String description, double price) {
         this.name = name;
+        this.description = description;
         this.price = price;
     }
 
@@ -30,11 +38,19 @@ public class Food {
         this.name = name;
     }
 
-    public String getPrice() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

@@ -1,22 +1,21 @@
 package com.klu.controller;
 
-import com.klu.model.Food;
-import com.klu.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import com.klu.model.Food;
+import com.klu.service.FoodService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/food")
+@CrossOrigin("*")   // IMPORTANT
 public class FoodController {
 
     @Autowired
-    FoodService service;
+    private FoodService service;
 
     @PostMapping("/add")
-    public String addFood(@RequestBody Food food) {
+    public Food addFood(@RequestBody Food food) {
         return service.addFood(food);
     }
 
